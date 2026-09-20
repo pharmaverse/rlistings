@@ -7,6 +7,5 @@
 .DS_Store
 docs
 README.html
-pkgdown
 tests/testthat/_snaps/**/*.new.md
 tests/testthat/_snaps/**/*.new.svg
