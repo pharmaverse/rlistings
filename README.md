@@ -127,4 +127,3 @@ as_listing(mtcars_ex,
 
 This package is a result of a joint effort by many developers and
 stakeholders. We would like to thank everyone who contributed so far!
-
