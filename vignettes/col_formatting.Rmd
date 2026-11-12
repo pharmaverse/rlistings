@@ -209,4 +209,4 @@ lsting_6
 
 In this vignette, you have learned how column formatting can be configured using the `default_formatting` and `col_formatting` arguments to `as_listing` and the `add_listing_col` function to customize how listings are rendered.
 
-**For more information please explore the [rlistings website](https://insightsengineering.github.io/rlistings/main/).**
+**For more information please explore the [rlistings website](https://pharmaverse.github.io/rlistings/main/).**

@@ -208,4 +208,4 @@ Now our listing is complete, with all four referential footnotes denoted within 
 
 In this vignette, you have learned how a pre-processing workaround can be applied to add referential footnotes to listings.
 
-**For more information please explore the [rlistings website](https://insightsengineering.github.io/rlistings/main/).**
+**For more information please explore the [rlistings website](https://pharmaverse.github.io/rlistings/main/).**
