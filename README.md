@@ -1,41 +1,41 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# rlistings <a href='https://github.com/insightsengineering/rlistings'><img src="man/figures/logo.svg" align="right" height="200" width="200"/></a>
+# rlistings <a href='https://github.com/pharmaverse/rlistings'><img src="man/figures/logo.svg" align="right" height="200" width="200"/></a>
 
 <!-- start badges -->
 
 [![Check
-🛠](https://github.com/insightsengineering/rlistings/actions/workflows/check.yaml/badge.svg)](https://insightsengineering.github.io/rlistings/main/unit-test-report/)
+🛠](https://github.com/pharmaverse/rlistings/actions/workflows/check.yaml/badge.svg)](https://pharmaverse.github.io/rlistings/main/unit-test-report/)
 [![Docs
-📚](https://github.com/insightsengineering/rlistings/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/rlistings/)
+📚](https://github.com/pharmaverse/rlistings/actions/workflows/docs.yaml/badge.svg)](https://pharmaverse.github.io/rlistings/)
 [![Code Coverage
-📔](https://raw.githubusercontent.com/insightsengineering/rlistings/_xml_coverage_reports/data/main/badge.svg)](https://insightsengineering.github.io/rlistings/main/coverage-report/)
+📔](https://raw.githubusercontent.com/pharmaverse/rlistings/_xml_coverage_reports/data/main/badge.svg)](https://pharmaverse.github.io/rlistings/main/coverage-report/)
 
 ![GitHub
-forks](https://img.shields.io/github/forks/insightsengineering/rlistings?style=social)
+forks](https://img.shields.io/github/forks/pharmaverse/rlistings?style=social)
 ![GitHub Repo
-stars](https://img.shields.io/github/stars/insightsengineering/rlistings?style=social)
+stars](https://img.shields.io/github/stars/pharmaverse/rlistings?style=social)
 
 ![GitHub commit
-activity](https://img.shields.io/github/commit-activity/m/insightsengineering/rlistings)
+activity](https://img.shields.io/github/commit-activity/m/pharmaverse/rlistings)
 ![GitHub
-contributors](https://img.shields.io/github/contributors/insightsengineering/rlistings)
+contributors](https://img.shields.io/github/contributors/pharmaverse/rlistings)
 ![GitHub last
-commit](https://img.shields.io/github/last-commit/insightsengineering/rlistings)
+commit](https://img.shields.io/github/last-commit/pharmaverse/rlistings)
 ![GitHub pull
-requests](https://img.shields.io/github/issues-pr/insightsengineering/rlistings)
+requests](https://img.shields.io/github/issues-pr/pharmaverse/rlistings)
 ![GitHub repo
-size](https://img.shields.io/github/repo-size/insightsengineering/rlistings)
+size](https://img.shields.io/github/repo-size/pharmaverse/rlistings)
 ![GitHub language
-count](https://img.shields.io/github/languages/count/insightsengineering/rlistings)
+count](https://img.shields.io/github/languages/count/pharmaverse/rlistings)
 [![WIP – Initial development is in progress, but there has not yet been
 a stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Current
-Version](https://img.shields.io/github/r-package/v/insightsengineering/rlistings/main?color=purple&label=package%20version)](https://github.com/insightsengineering/rlistings/tree/main)
+Version](https://img.shields.io/github/r-package/v/pharmaverse/rlistings/main?color=purple&label=package%20version)](https://github.com/pharmaverse/rlistings/tree/main)
 [![Open
-Issues](https://img.shields.io/github/issues-raw/insightsengineering/rlistings?color=red&label=open%20issues)](https://github.com/insightsengineering/rlistings/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+Issues](https://img.shields.io/github/issues-raw/pharmaverse/rlistings?color=red&label=open%20issues)](https://github.com/pharmaverse/rlistings/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 <!-- end badges -->
 
 ## Listings with R
@@ -45,7 +45,7 @@ display listings with R. The focus of this package is to provide
 functionality for value formatting and ASCII rendering infrastructure
 for tables and listings. Many of the functions contained in `rlistings`
 depend on the
-[`formatters`](https://insightsengineering.github.io/formatters/)
+[`formatters`](https://pharmaverse.github.io/formatters/)
 package, which provides a framework for ASCII rendering and is available
 on CRAN.
 
@@ -76,21 +76,21 @@ with:
 
 ``` r
 # install.packages("pak")
-pak::pak("insightsengineering/rlistings")
+pak::pak("pharmaverse/rlistings")
 ```
 
 Packaged releases (both those on CRAN and those between official CRAN
 releases) can be found in the [releases
-list](https://github.com/insightsengineering/rlistings/releases).
+list](https://github.com/pharmaverse/rlistings/releases).
 
 To understand how to use this package, please refer to the [Introduction
 to
-`rlistings`](https://insightsengineering.github.io/rlistings/latest-tag/articles/rlistings.html)
+`rlistings`](https://pharmaverse.github.io/rlistings/latest-tag/articles/rlistings.html)
 article, which provides multiple examples of code implementation.
 
 ## Cheatsheet
 
-<a href="https://github.com/insightsengineering/rlistings/blob/main/inst/cheatsheet/rlistings_cheatsheet_03-24.pdf"><img src="https://raw.githubusercontent.com/insightsengineering/rlistings/main/inst/cheatsheet/rlistings_cheatsheet_03-24_thumbs.png" width="630" height="249"/></a>
+<a href="https://github.com/pharmaverse/rlistings/blob/main/inst/cheatsheet/rlistings_cheatsheet_03-24.pdf"><img src="https://raw.githubusercontent.com/pharmaverse/rlistings/main/inst/cheatsheet/rlistings_cheatsheet_03-24_thumbs.png" width="630" height="249"/></a>
 
 ## Usage
 
@@ -127,4 +127,3 @@ as_listing(mtcars_ex,
 
 This package is a result of a joint effort by many developers and
 stakeholders. We would like to thank everyone who contributed so far!
-

@@ -1,4 +1,5 @@
 ## rlistings 0.2.13.9004
+ * Updated documentation links from `insightsengineering` to `pharmaverse` (search index, `formatters`/`rtables` cross-links, README and vignettes) (#285).
 
 ## rlistings 0.2.13
  * Fixed bug in `split_into_pages_by_var()` that prevented correct handling of some listings with trailing separators.

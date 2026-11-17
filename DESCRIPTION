@@ -47,12 +47,12 @@ Suggests:
 VignetteBuilder:
     knitr,
     rmarkdown
-Config/Needs/verdepcheck: insightsengineering/formatters,
+Config/Needs/verdepcheck: pharmaverse/formatters,
     tidyverse/tibble, mllg/checkmate, tidyverse/dplyr, yihui/knitr,
     r-lib/lifecycle, rstudio/rmarkdown, gagolews/stringi, r-lib/testthat,
     r-lib/withr
 Config/Needs/website: insightsengineering/nesttemplate
-Config/roxygen2/version: 8.0.0
+Config/roxygen2/version: 8.1.1
 Config/testthat/edition: 3
 Encoding: UTF-8
 Language: en-US
