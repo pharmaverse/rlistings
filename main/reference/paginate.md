@@ -5,7 +5,7 @@
 Pagination of a listing. This can be vertical for long listings with
 many rows and/or horizontal if there are many columns. This function is
 a wrapper of
-[`formatters::paginate_to_mpfs()`](https://insightsengineering.github.io/formatters/latest-tag/reference/paginate_indices.html)
+[`formatters::paginate_to_mpfs()`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)
 and it is mainly meant for exploration and testing.
 
 ## Usage
@@ -45,7 +45,7 @@ paginate_listing(
 
   (`string`)\
   name of a page type. See
-  [`page_types`](https://insightsengineering.github.io/formatters/latest-tag/reference/page_types.html).
+  [`page_types`](https://pharmaverse.github.io/formatters/latest-tag/reference/page_types.html).
   Ignored when `pg_width` and `pg_height` are set directly.
 
 - font_family:
@@ -138,7 +138,7 @@ paginate_listing(
   (`font_spec`)\
   a font_spec object specifying the font information to use for
   calculating string widths and heights, as returned by
-  [`font_spec()`](https://insightsengineering.github.io/formatters/latest-tag/reference/font_spec.html).
+  [`font_spec()`](https://pharmaverse.github.io/formatters/latest-tag/reference/font_spec.html).
 
 - verbose:
 

@@ -1,35 +1,35 @@
 # rlistings
 
 [![Check
-🛠](https://github.com/insightsengineering/rlistings/actions/workflows/check.yaml/badge.svg)](https://insightsengineering.github.io/rlistings/main/unit-test-report/)
+🛠](https://github.com/pharmaverse/rlistings/actions/workflows/check.yaml/badge.svg)](https://pharmaverse.github.io/rlistings/main/unit-test-report/)
 [![Docs
-📚](https://github.com/insightsengineering/rlistings/actions/workflows/docs.yaml/badge.svg)](https://insightsengineering.github.io/rlistings/)
+📚](https://github.com/pharmaverse/rlistings/actions/workflows/docs.yaml/badge.svg)](https://pharmaverse.github.io/rlistings/)
 [![Code Coverage
-📔](https://raw.githubusercontent.com/insightsengineering/rlistings/_xml_coverage_reports/data/main/badge.svg)](https://insightsengineering.github.io/rlistings/main/coverage-report/)
+📔](https://raw.githubusercontent.com/pharmaverse/rlistings/_xml_coverage_reports/data/main/badge.svg)](https://pharmaverse.github.io/rlistings/main/coverage-report/)
 
 ![GitHub
-forks](https://img.shields.io/github/forks/insightsengineering/rlistings?style=social)![GitHub
+forks](https://img.shields.io/github/forks/pharmaverse/rlistings?style=social)![GitHub
 Repo
-stars](https://img.shields.io/github/stars/insightsengineering/rlistings?style=social)
+stars](https://img.shields.io/github/stars/pharmaverse/rlistings?style=social)
 
 ![GitHub commit
-activity](https://img.shields.io/github/commit-activity/m/insightsengineering/rlistings)![GitHub
-contributors](https://img.shields.io/github/contributors/insightsengineering/rlistings)![GitHub
+activity](https://img.shields.io/github/commit-activity/m/pharmaverse/rlistings)![GitHub
+contributors](https://img.shields.io/github/contributors/pharmaverse/rlistings)![GitHub
 last
-commit](https://img.shields.io/github/last-commit/insightsengineering/rlistings)![GitHub
+commit](https://img.shields.io/github/last-commit/pharmaverse/rlistings)![GitHub
 pull
-requests](https://img.shields.io/github/issues-pr/insightsengineering/rlistings)![GitHub
+requests](https://img.shields.io/github/issues-pr/pharmaverse/rlistings)![GitHub
 repo
-size](https://img.shields.io/github/repo-size/insightsengineering/rlistings)![GitHub
+size](https://img.shields.io/github/repo-size/pharmaverse/rlistings)![GitHub
 language
-count](https://img.shields.io/github/languages/count/insightsengineering/rlistings)[![WIP
+count](https://img.shields.io/github/languages/count/pharmaverse/rlistings)[![WIP
 – Initial development is in progress, but there has not yet been a
 stable, usable release suitable for the
 public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 [![Current
-Version](https://img.shields.io/github/r-package/v/insightsengineering/rlistings/main?color=purple&label=package%20version)](https://github.com/insightsengineering/rlistings/tree/main)
+Version](https://img.shields.io/github/r-package/v/pharmaverse/rlistings/main?color=purple&label=package%20version)](https://github.com/pharmaverse/rlistings/tree/main)
 [![Open
-Issues](https://img.shields.io/github/issues-raw/insightsengineering/rlistings?color=red&label=open%20issues)](https://github.com/insightsengineering/rlistings/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+Issues](https://img.shields.io/github/issues-raw/pharmaverse/rlistings?color=red&label=open%20issues)](https://github.com/pharmaverse/rlistings/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
 
 ## Listings with R
 
@@ -37,8 +37,7 @@ The `rlistings` R package is a package that was designed to create and
 display listings with R. The focus of this package is to provide
 functionality for value formatting and ASCII rendering infrastructure
 for tables and listings. Many of the functions contained in `rlistings`
-depend on the
-[`formatters`](https://insightsengineering.github.io/formatters/)
+depend on the [`formatters`](https://pharmaverse.github.io/formatters/)
 package, which provides a framework for ASCII rendering and is available
 on CRAN.
 
@@ -60,64 +59,58 @@ under active development.
 `rlistings` is available on CRAN and you can install the latest released
 version with:
 
-``` r
-
-install.packages("rlistings")
-```
+\
+[`install.packages`](https://rdrr.io/r/utils/install.packages.html)`(``"rlistings"``)`
 
 or you can install the latest development version directly from GitHub
 with:
 
-``` r
-
-# install.packages("pak")
-pak::pak("insightsengineering/rlistings")
-```
+\
+`# install.packages("pak")`\
+`pak``::`[`pak`](https://pak.r-lib.org/reference/pak.html)`(``"pharmaverse/rlistings"``)`
 
 Packaged releases (both those on CRAN and those between official CRAN
 releases) can be found in the [releases
-list](https://github.com/insightsengineering/rlistings/releases).
+list](https://github.com/pharmaverse/rlistings/releases).
 
 To understand how to use this package, please refer to the [Introduction
 to
-`rlistings`](https://insightsengineering.github.io/rlistings/latest-tag/articles/rlistings.html)
+`rlistings`](https://pharmaverse.github.io/rlistings/latest-tag/articles/rlistings.html)
 article, which provides multiple examples of code implementation.
 
 ## Cheatsheet
 
-[![](https://raw.githubusercontent.com/insightsengineering/rlistings/main/inst/cheatsheet/rlistings_cheatsheet_03-24_thumbs.png)](https://github.com/insightsengineering/rlistings/blob/main/inst/cheatsheet/rlistings_cheatsheet_03-24.pdf)
+[![](https://raw.githubusercontent.com/pharmaverse/rlistings/main/inst/cheatsheet/rlistings_cheatsheet_03-24_thumbs.png)](https://github.com/pharmaverse/rlistings/blob/main/inst/cheatsheet/rlistings_cheatsheet_03-24.pdf)
 
 ## Usage
 
 The following example shows a simple listing and its printed output.
 
-``` r
-
-library(rlistings)
-#> Loading required package: formatters
-#> 
-#> Attaching package: 'formatters'
-#> The following object is masked from 'package:base':
-#> 
-#>     %||%
-#> Loading required package: tibble
-
-# Reducing the data
-mtcars_ex <- mtcars %>% dplyr::mutate("car" = rownames(mtcars))
-
-as_listing(mtcars_ex,
-  key_cols = c("gear", "carb"),
-  disp_cols = c("gear", "carb", "qsec", "car")
-) %>% head()
-#> gear   carb   qsec           car       
-#> ———————————————————————————————————————
-#>  3      1     19.44    Hornet 4 Drive  
-#>               20.22        Valiant     
-#>               20.01     Toyota Corona  
-#>         2     17.02   Hornet Sportabout
-#>               16.87   Dodge Challenger 
-#>               17.3       AMC Javelin
-```
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`rlistings`](https://pharmaverse.github.io/rlistings/)`)`\
+`#> Loading required package: formatters`\
+`#> `\
+`#> Attaching package: 'formatters'`\
+`#> The following object is masked from 'package:base':`\
+`#> `\
+`#>     %||%`\
+`#> Loading required package: tibble`\
+\
+`# Reducing the data`\
+`mtcars_ex`` ``<-`` ``mtcars`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` ``dplyr``::`[`mutate`](https://dplyr.tidyverse.org/reference/mutate.html)`(``"car"`` ``=`` `[`rownames`](https://rdrr.io/r/base/colnames.html)`(``mtcars``)``)`\
+\
+[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(``mtcars_ex``,`\
+`  key_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"gear"``, ``"carb"``)``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"gear"``, ``"carb"``, ``"qsec"``, ``"car"``)`\
+`)`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)` `[`head`](https://rdrr.io/r/utils/head.html)`(``)`\
+`#> gear   carb   qsec           car       `\
+`#> ———————————————————————————————————————`\
+`#>  3      1     19.44    Hornet 4 Drive  `\
+`#>               20.22        Valiant     `\
+`#>               20.01     Toyota Corona  `\
+`#>         2     17.02   Hornet Sportabout`\
+`#>               16.87   Dodge Challenger `\
+`#>               17.3       AMC Javelin`
 
 ## Acknowledgment
 

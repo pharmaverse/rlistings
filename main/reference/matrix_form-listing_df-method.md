@@ -24,7 +24,7 @@ matrix_form(
 
   (`ANY`)\
   object to be transformed into a ready-to-render form (a
-  [`MatrixPrintForm`](https://insightsengineering.github.io/formatters/latest-tag/reference/MatrixPrintForm.html)
+  [`MatrixPrintForm`](https://pharmaverse.github.io/formatters/latest-tag/reference/MatrixPrintForm.html)
   object).
 
 - indent_rownames:
@@ -44,7 +44,7 @@ matrix_form(
   (`font_spec`)\
   a font_spec object specifying the font information to use for
   calculating string widths and heights, as returned by
-  [`font_spec()`](https://insightsengineering.github.io/formatters/latest-tag/reference/font_spec.html).
+  [`font_spec()`](https://pharmaverse.github.io/formatters/latest-tag/reference/font_spec.html).
 
 - col_gap:
 
@@ -60,7 +60,7 @@ matrix_form(
   or `"sas"`)\
   iec, the default, and iec_mod performs rounding compliant with IEC
   60559 (see notes in
-  [`round_fmt()`](https://insightsengineering.github.io/formatters/latest-tag/reference/round_fmt.html)),
+  [`round_fmt()`](https://pharmaverse.github.io/formatters/latest-tag/reference/round_fmt.html)),
   while sas performs nearest-value rounding consistent with rounding
   within SAS.\
   In addition, the rounding of a negative number that rounds to zero
@@ -71,12 +71,12 @@ matrix_form(
 ## Value
 
 a
-[formatters::MatrixPrintForm](https://insightsengineering.github.io/formatters/latest-tag/reference/MatrixPrintForm.html)
+[formatters::MatrixPrintForm](https://pharmaverse.github.io/formatters/latest-tag/reference/MatrixPrintForm.html)
 object.
 
 ## See also
 
-[`formatters::matrix_form()`](https://insightsengineering.github.io/formatters/latest-tag/reference/matrix_form.html)
+[`formatters::matrix_form()`](https://pharmaverse.github.io/formatters/latest-tag/reference/matrix_form.html)
 
 ## Examples
 

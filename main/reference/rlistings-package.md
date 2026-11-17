@@ -8,12 +8,11 @@ features often used when displaying large datasets in that context.
 
 Useful links:
 
-- <https://insightsengineering.github.io/rlistings/>
+- <https://pharmaverse.github.io/rlistings/>
 
-- <https://github.com/insightsengineering/rlistings/>
+- <https://github.com/pharmaverse/rlistings/>
 
-- Report bugs at
-  <https://github.com/insightsengineering/rlistings/issues>
+- Report bugs at <https://github.com/pharmaverse/rlistings/issues>
 
 ## Author
 

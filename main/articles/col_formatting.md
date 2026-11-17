@@ -56,11 +56,9 @@ formatting using the `default_formatting` parameter.
 
 We begin by loading in the `rlistings` package.
 
-``` r
-
-library(rlistings)
-require(dplyr)
-```
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`rlistings`](https://pharmaverse.github.io/rlistings/)`)`\
+[`require`](https://rdrr.io/r/base/library.html)`(`[`dplyr`](https://dplyr.tidyverse.org)`)`
 
 For this example, we will use the dummy ADAE dataset provided within the
 `formatters` package as our data frame, which consists of 48 columns of
@@ -70,45 +68,41 @@ purpose of this example, we will subset the data and only use the first
 to showcase how `NA` values can be formatted, and sort the data by what
 will be our key columns.
 
-``` r
-
-adae <- ex_adae[1:15, ]
-
-set.seed(1)
-adae <- as.data.frame(lapply(adae, function(x) replace(x, sample(length(x), 0.1 * length(x)), NA)))
-
-adae <- adae %>% dplyr::arrange(USUBJID, AGE, TRTSDTM)
-```
+\
+`adae`` ``<-`` ``ex_adae``[``1``:``15``, ``]`\
+\
+[`set.seed`](https://rdrr.io/r/base/Random.html)`(``1``)`\
+`adae`` ``<-`` `[`as.data.frame`](https://rdrr.io/r/base/as.data.frame.html)`(`[`lapply`](https://rdrr.io/r/base/lapply.html)`(``adae``, ``function``(``x``)`` `[`replace`](https://rdrr.io/r/base/replace.html)`(``x``, `[`sample`](https://rdrr.io/r/base/sample.html)`(`[`length`](https://rdrr.io/r/base/length.html)`(``x``)``, ``0.1`` ``*`` `[`length`](https://rdrr.io/r/base/length.html)`(``x``)``)``, ``NA``)``)``)`\
+\
+`adae`` ``<-`` ``adae`` ``|>`` ``dplyr``::`[`arrange`](https://dplyr.tidyverse.org/reference/arrange.html)`(``USUBJID``, ``AGE``, ``TRTSDTM``)`
 
 Now we will create a basic listing.
 
-``` r
-
-lsting_1 <- as_listing(
-  df = adae,
-  key_cols = c("USUBJID", "AGE", "TRTSDTM"),
-  disp_cols = c("BMRKR1", "ASEQ", "AESEV"),
-)
-
-lsting_1
-#> Unique Subject Identifier   Age   Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134      47          2021-06-10 13:26:53.956201               6.46299057842479                    1                    MODERATE     
-#>                                                                                  6.46299057842479                    3                    MODERATE     
-#>                             NA          2021-06-10 13:26:53.956201               6.46299057842479                    2                    MODERATE     
-#>   AB12345-BRA-1-id-141      35          2021-02-28 23:47:16.956201               7.51607612428241                    2                      MILD       
-#>                                                                                  7.51607612428241                    3                      MILD       
-#>                                                                                  7.51607612428241                    4                    MODERATE     
-#>                                                                                  7.51607612428241                    5                      MILD       
-#>                                                                                         NA                           6                       NA        
-#>                                                     NA                           7.51607612428241                    1                    MODERATE     
-#>   AB12345-BRA-1-id-236      32          2021-08-21 18:13:25.956201               7.66300121077566                    1                     SEVERE      
-#>                                                                                  7.66300121077566                    2                     SEVERE      
-#>                                                                                  7.66300121077566                    3                     SEVERE      
-#>   AB12345-BRA-1-id-265      25          2020-05-13 00:38:12.956201                10.323346349886                    NA                   MODERATE     
-#>                                                                                   10.323346349886                    2                    MODERATE     
-#>            NA               47          2021-06-10 13:26:53.956201               6.46299057842479                    4                    MODERATE
-```
+\
+`lsting_1`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(`\
+`  df ``=`` ``adae``,`\
+`  key_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"USUBJID"``, ``"AGE"``, ``"TRTSDTM"``)``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"BMRKR1"``, ``"ASEQ"``, ``"AESEV"``)``,`\
+`)`\
+\
+`lsting_1`\
+`#> Unique Subject Identifier   Age   Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134      47          2021-06-10 13:26:53.956201               6.46299057842479                    1                    MODERATE     `\
+`#>                                                                                  6.46299057842479                    3                    MODERATE     `\
+`#>                             NA          2021-06-10 13:26:53.956201               6.46299057842479                    2                    MODERATE     `\
+`#>   AB12345-BRA-1-id-141      35          2021-02-28 23:47:16.956201               7.51607612428241                    2                      MILD       `\
+`#>                                                                                  7.51607612428241                    3                      MILD       `\
+`#>                                                                                  7.51607612428241                    4                    MODERATE     `\
+`#>                                                                                  7.51607612428241                    5                      MILD       `\
+`#>                                                                                         NA                           6                       NA        `\
+`#>                                                     NA                           7.51607612428241                    1                    MODERATE     `\
+`#>   AB12345-BRA-1-id-236      32          2021-08-21 18:13:25.956201               7.66300121077566                    1                     SEVERE      `\
+`#>                                                                                  7.66300121077566                    2                     SEVERE      `\
+`#>                                                                                  7.66300121077566                    3                     SEVERE      `\
+`#>   AB12345-BRA-1-id-265      25          2020-05-13 00:38:12.956201                10.323346349886                    NA                   MODERATE     `\
+`#>                                                                                   10.323346349886                    2                    MODERATE     `\
+`#>            NA               47          2021-06-10 13:26:53.956201               6.46299057842479                    4                    MODERATE`
 
 Notice that all of the data in the table above is displayed as is, with
 no rounding or formatting applied. All columns are centered and all
@@ -119,124 +113,118 @@ replace missing values with the string `"<No data>"`. This can be done
 by setting the `all` element in the list supplied to
 `default_formatting`, as shown in the following example.
 
-``` r
-
-default_fmt <- list(
-  all = fmt_config(na_str = "<No data>", align = "left")
-)
-
-lsting_2 <- as_listing(
-  df = adae,
-  key_cols = c("USUBJID", "AGE", "TRTSDTM"),
-  disp_cols = c("BMRKR1", "ASEQ", "AESEV"),
-  default_formatting = default_fmt
-)
-
-lsting_2
-#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> AB12345-BRA-1-id-134        47          2021-06-10 13:26:53.956201                6.46299057842479              1                          MODERATE          
-#>                                                                                   6.46299057842479              3                          MODERATE          
-#>                             <No data>   2021-06-10 13:26:53.956201                6.46299057842479              2                          MODERATE          
-#> AB12345-BRA-1-id-141        35          2021-02-28 23:47:16.956201                7.51607612428241              2                          MILD              
-#>                                                                                   7.51607612428241              3                          MILD              
-#>                                                                                   7.51607612428241              4                          MODERATE          
-#>                                                                                   7.51607612428241              5                          MILD              
-#>                                                                                   <No data>                     6                          <No data>         
-#>                                         <No data>                                 7.51607612428241              1                          MODERATE          
-#> AB12345-BRA-1-id-236        32          2021-08-21 18:13:25.956201                7.66300121077566              1                          SEVERE            
-#>                                                                                   7.66300121077566              2                          SEVERE            
-#>                                                                                   7.66300121077566              3                          SEVERE            
-#> AB12345-BRA-1-id-265        25          2020-05-13 00:38:12.956201                10.323346349886               <No data>                  MODERATE          
-#>                                                                                   10.323346349886               2                          MODERATE          
-#> <No data>                   47          2021-06-10 13:26:53.956201                6.46299057842479              4                          MODERATE
-```
+\
+`default_fmt`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`\
+`  all ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``na_str ``=`` ``"<No data>"``, align ``=`` ``"left"``)`\
+`)`\
+\
+`lsting_2`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(`\
+`  df ``=`` ``adae``,`\
+`  key_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"USUBJID"``, ``"AGE"``, ``"TRTSDTM"``)``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"BMRKR1"``, ``"ASEQ"``, ``"AESEV"``)``,`\
+`  default_formatting ``=`` ``default_fmt`\
+`)`\
+\
+`lsting_2`\
+`#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> AB12345-BRA-1-id-134        47          2021-06-10 13:26:53.956201                6.46299057842479              1                          MODERATE          `\
+`#>                                                                                   6.46299057842479              3                          MODERATE          `\
+`#>                             <No data>   2021-06-10 13:26:53.956201                6.46299057842479              2                          MODERATE          `\
+`#> AB12345-BRA-1-id-141        35          2021-02-28 23:47:16.956201                7.51607612428241              2                          MILD              `\
+`#>                                                                                   7.51607612428241              3                          MILD              `\
+`#>                                                                                   7.51607612428241              4                          MODERATE          `\
+`#>                                                                                   7.51607612428241              5                          MILD              `\
+`#>                                                                                   <No data>                     6                          <No data>         `\
+`#>                                         <No data>                                 7.51607612428241              1                          MODERATE          `\
+`#> AB12345-BRA-1-id-236        32          2021-08-21 18:13:25.956201                7.66300121077566              1                          SEVERE            `\
+`#>                                                                                   7.66300121077566              2                          SEVERE            `\
+`#>                                                                                   7.66300121077566              3                          SEVERE            `\
+`#> AB12345-BRA-1-id-265        25          2020-05-13 00:38:12.956201                10.323346349886               <No data>                  MODERATE          `\
+`#>                                                                                   10.323346349886               2                          MODERATE          `\
+`#> <No data>                   47          2021-06-10 13:26:53.956201                6.46299057842479              4                          MODERATE`
 
 Now consider that we would like to display our numeric columns with two
 decimal places and then align these columns on the decimal point. This
 can be done by adding a `"numeric"` element to the `default_formatting`
 list as follows:
 
-``` r
-
-default_fmt <- list(
-  all = fmt_config(na_str = "<No data>", align = "left"),
-  numeric = fmt_config(format = "xx.xx", na_str = "<No data>", align = "decimal")
-)
-
-lsting_3 <- as_listing(
-  df = adae,
-  key_cols = c("USUBJID", "AGE", "TRTSDTM"),
-  disp_cols = c("BMRKR1", "ASEQ", "AESEV"),
-  default_formatting = default_fmt
-)
-
-lsting_3
-#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> AB12345-BRA-1-id-134          47.00     2021-06-10 13:26:53.956201                            6.46                        1.00             MODERATE          
-#>                                                                                               6.46                        3.00             MODERATE          
-#>                             <No data>   2021-06-10 13:26:53.956201                            6.46                        2.00             MODERATE          
-#> AB12345-BRA-1-id-141          35.00     2021-02-28 23:47:16.956201                            7.52                        2.00             MILD              
-#>                                                                                               7.52                        3.00             MILD              
-#>                                                                                               7.52                        4.00             MODERATE          
-#>                                                                                               7.52                        5.00             MILD              
-#>                                                                                            <No data>                      6.00             <No data>         
-#>                                         <No data>                                             7.52                        1.00             MODERATE          
-#> AB12345-BRA-1-id-236          32.00     2021-08-21 18:13:25.956201                            7.66                        1.00             SEVERE            
-#>                                                                                               7.66                        2.00             SEVERE            
-#>                                                                                               7.66                        3.00             SEVERE            
-#> AB12345-BRA-1-id-265          25.00     2020-05-13 00:38:12.956201                           10.32                     <No data>           MODERATE          
-#>                                                                                              10.32                        2.00             MODERATE          
-#> <No data>                     47.00     2021-06-10 13:26:53.956201                            6.46                        4.00             MODERATE
-```
+\
+`default_fmt`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`\
+`  all ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``na_str ``=`` ``"<No data>"``, align ``=`` ``"left"``)``,`\
+`  numeric ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``format ``=`` ``"xx.xx"``, na_str ``=`` ``"<No data>"``, align ``=`` ``"decimal"``)`\
+`)`\
+\
+`lsting_3`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(`\
+`  df ``=`` ``adae``,`\
+`  key_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"USUBJID"``, ``"AGE"``, ``"TRTSDTM"``)``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"BMRKR1"``, ``"ASEQ"``, ``"AESEV"``)``,`\
+`  default_formatting ``=`` ``default_fmt`\
+`)`\
+\
+`lsting_3`\
+`#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> AB12345-BRA-1-id-134          47.00     2021-06-10 13:26:53.956201                            6.46                        1.00             MODERATE          `\
+`#>                                                                                               6.46                        3.00             MODERATE          `\
+`#>                             <No data>   2021-06-10 13:26:53.956201                            6.46                        2.00             MODERATE          `\
+`#> AB12345-BRA-1-id-141          35.00     2021-02-28 23:47:16.956201                            7.52                        2.00             MILD              `\
+`#>                                                                                               7.52                        3.00             MILD              `\
+`#>                                                                                               7.52                        4.00             MODERATE          `\
+`#>                                                                                               7.52                        5.00             MILD              `\
+`#>                                                                                            <No data>                      6.00             <No data>         `\
+`#>                                         <No data>                                             7.52                        1.00             MODERATE          `\
+`#> AB12345-BRA-1-id-236          32.00     2021-08-21 18:13:25.956201                            7.66                        1.00             SEVERE            `\
+`#>                                                                                               7.66                        2.00             SEVERE            `\
+`#>                                                                                               7.66                        3.00             SEVERE            `\
+`#> AB12345-BRA-1-id-265          25.00     2020-05-13 00:38:12.956201                           10.32                     <No data>           MODERATE          `\
+`#>                                                                                              10.32                        2.00             MODERATE          `\
+`#> <No data>                     47.00     2021-06-10 13:26:53.956201                            6.46                        4.00             MODERATE`
 
 Along with the format strings listed by
-[`formatters::list_valid_format_labels`](https://insightsengineering.github.io/formatters/latest-tag/reference/list_formats.html),
+[`formatters::list_valid_format_labels`](https://pharmaverse.github.io/formatters/latest-tag/reference/list_formats.html),
 we can also specify a format *function* to allow for more customized
 formats in our listing. In the following example, we will define and
 apply a custom format function to format date (`POSIXt` class) columns
 in our listing.
 
-``` r
-
-# Custom format function - takes date format as input
-date_fmt <- function(fmt) {
-  function(x, ...) do.call(format, list(x = x, fmt))
-}
-
-default_fmt <- list(
-  all = fmt_config(na_str = "<No data>", align = "left"),
-  numeric = fmt_config(format = "xx.xx", na_str = "<No data>", align = "decimal"),
-  POSIXt = fmt_config(format = date_fmt("%B %d, %Y @ %I:%M %p %Z"), na_str = "<No data>")
-)
-
-lsting_4 <- as_listing(
-  df = adae,
-  key_cols = c("USUBJID", "AGE", "TRTSDTM"),
-  disp_cols = c("BMRKR1", "ASEQ", "AESEV"),
-  default_formatting = default_fmt
-)
-
-lsting_4
-#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> AB12345-BRA-1-id-134          47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        1.00             MODERATE          
-#>                                                                                               6.46                        3.00             MODERATE          
-#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                        2.00             MODERATE          
-#> AB12345-BRA-1-id-141          35.00        February 28, 2021 @ 11:47 PM UTC                   7.52                        2.00             MILD              
-#>                                                                                               7.52                        3.00             MILD              
-#>                                                                                               7.52                        4.00             MODERATE          
-#>                                                                                               7.52                        5.00             MILD              
-#>                                                                                            <No data>                      6.00             <No data>         
-#>                                                        <No data>                              7.52                        1.00             MODERATE          
-#> AB12345-BRA-1-id-236          32.00         August 21, 2021 @ 06:13 PM UTC                    7.66                        1.00             SEVERE            
-#>                                                                                               7.66                        2.00             SEVERE            
-#>                                                                                               7.66                        3.00             SEVERE            
-#> AB12345-BRA-1-id-265          25.00           May 13, 2020 @ 12:38 AM UTC                    10.32                     <No data>           MODERATE          
-#>                                                                                              10.32                        2.00             MODERATE          
-#> <No data>                     47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        4.00             MODERATE
-```
+\
+`# Custom format function - takes date format as input`\
+`date_fmt`` ``<-`` ``function``(``fmt``)`` ``{`\
+`  ``function``(``x``, ``...``)`` `[`do.call`](https://rdrr.io/r/base/do.call.html)`(``format``, `[`list`](https://rdrr.io/r/base/list.html)`(``x ``=`` ``x``, ``fmt``)``)`\
+`}`\
+\
+`default_fmt`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`\
+`  all ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``na_str ``=`` ``"<No data>"``, align ``=`` ``"left"``)``,`\
+`  numeric ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``format ``=`` ``"xx.xx"``, na_str ``=`` ``"<No data>"``, align ``=`` ``"decimal"``)``,`\
+`  POSIXt ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``format ``=`` ``date_fmt``(``"%B %d, %Y @ %I:%M %p %Z"``)``, na_str ``=`` ``"<No data>"``)`\
+`)`\
+\
+`lsting_4`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(`\
+`  df ``=`` ``adae``,`\
+`  key_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"USUBJID"``, ``"AGE"``, ``"TRTSDTM"``)``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"BMRKR1"``, ``"ASEQ"``, ``"AESEV"``)``,`\
+`  default_formatting ``=`` ``default_fmt`\
+`)`\
+\
+`lsting_4`\
+`#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> AB12345-BRA-1-id-134          47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        1.00             MODERATE          `\
+`#>                                                                                               6.46                        3.00             MODERATE          `\
+`#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                        2.00             MODERATE          `\
+`#> AB12345-BRA-1-id-141          35.00        February 28, 2021 @ 11:47 PM UTC                   7.52                        2.00             MILD              `\
+`#>                                                                                               7.52                        3.00             MILD              `\
+`#>                                                                                               7.52                        4.00             MODERATE          `\
+`#>                                                                                               7.52                        5.00             MILD              `\
+`#>                                                                                            <No data>                      6.00             <No data>         `\
+`#>                                                        <No data>                              7.52                        1.00             MODERATE          `\
+`#> AB12345-BRA-1-id-236          32.00         August 21, 2021 @ 06:13 PM UTC                    7.66                        1.00             SEVERE            `\
+`#>                                                                                               7.66                        2.00             SEVERE            `\
+`#>                                                                                               7.66                        3.00             SEVERE            `\
+`#> AB12345-BRA-1-id-265          25.00           May 13, 2020 @ 12:38 AM UTC                    10.32                     <No data>           MODERATE          `\
+`#>                                                                                              10.32                        2.00             MODERATE          `\
+`#> <No data>                     47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        4.00             MODERATE`
 
 In the output above, the `all` format configuration, which originally
 applied to all columns in the listing, now only applies to the two
@@ -254,27 +242,25 @@ specified data class or an entire listing at once.
 
 Take, for example, `lsting_4` created in the previous section.
 
-``` r
-
-lsting_4
-#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> AB12345-BRA-1-id-134          47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        1.00             MODERATE          
-#>                                                                                               6.46                        3.00             MODERATE          
-#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                        2.00             MODERATE          
-#> AB12345-BRA-1-id-141          35.00        February 28, 2021 @ 11:47 PM UTC                   7.52                        2.00             MILD              
-#>                                                                                               7.52                        3.00             MILD              
-#>                                                                                               7.52                        4.00             MODERATE          
-#>                                                                                               7.52                        5.00             MILD              
-#>                                                                                            <No data>                      6.00             <No data>         
-#>                                                        <No data>                              7.52                        1.00             MODERATE          
-#> AB12345-BRA-1-id-236          32.00         August 21, 2021 @ 06:13 PM UTC                    7.66                        1.00             SEVERE            
-#>                                                                                               7.66                        2.00             SEVERE            
-#>                                                                                               7.66                        3.00             SEVERE            
-#> AB12345-BRA-1-id-265          25.00           May 13, 2020 @ 12:38 AM UTC                    10.32                     <No data>           MODERATE          
-#>                                                                                              10.32                        2.00             MODERATE          
-#> <No data>                     47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        4.00             MODERATE
-```
+\
+`lsting_4`\
+`#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> AB12345-BRA-1-id-134          47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        1.00             MODERATE          `\
+`#>                                                                                               6.46                        3.00             MODERATE          `\
+`#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                        2.00             MODERATE          `\
+`#> AB12345-BRA-1-id-141          35.00        February 28, 2021 @ 11:47 PM UTC                   7.52                        2.00             MILD              `\
+`#>                                                                                               7.52                        3.00             MILD              `\
+`#>                                                                                               7.52                        4.00             MODERATE          `\
+`#>                                                                                               7.52                        5.00             MILD              `\
+`#>                                                                                            <No data>                      6.00             <No data>         `\
+`#>                                                        <No data>                              7.52                        1.00             MODERATE          `\
+`#> AB12345-BRA-1-id-236          32.00         August 21, 2021 @ 06:13 PM UTC                    7.66                        1.00             SEVERE            `\
+`#>                                                                                               7.66                        2.00             SEVERE            `\
+`#>                                                                                               7.66                        3.00             SEVERE            `\
+`#> AB12345-BRA-1-id-265          25.00           May 13, 2020 @ 12:38 AM UTC                    10.32                     <No data>           MODERATE          `\
+`#>                                                                                              10.32                        2.00             MODERATE          `\
+`#> <No data>                     47.00          June 10, 2021 @ 01:26 PM UTC                     6.46                        4.00             MODERATE`
 
 This listing applies the same format configuration to all numeric
 columns. But in some cases, this may not produce the result we want. In
@@ -294,45 +280,43 @@ See the following example which demonstrates how `col_formatting` can be
 used with the `BMRKR1` column. We will use the `"xx"` format and right
 alignment for the two remaining numeric columns.
 
-``` r
-
-default_fmt <- list(
-  all = fmt_config(na_str = "<No data>", align = "left"),
-  numeric = fmt_config(format = "xx", na_str = "<No data>", align = "right"),
-  POSIXt = fmt_config(format = date_fmt("%B %d, %Y @ %I:%M %p %Z"), na_str = "<No data>")
-)
-
-col_fmt <- list(
-  BMRKR1 = fmt_config(format = "xx.xx", na_str = "<No data>", align = "decimal")
-)
-
-lsting_5 <- as_listing(
-  df = adae,
-  key_cols = c("USUBJID", "AGE", "TRTSDTM"),
-  disp_cols = c("BMRKR1", "ASEQ", "AESEV"),
-  default_formatting = default_fmt,
-  col_formatting = col_fmt
-)
-
-lsting_5
-#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> AB12345-BRA-1-id-134               47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     1   MODERATE          
-#>                                                                                               6.46                                     3   MODERATE          
-#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                                     2   MODERATE          
-#> AB12345-BRA-1-id-141               35      February 28, 2021 @ 11:47 PM UTC                   7.52                                     2   MILD              
-#>                                                                                               7.52                                     3   MILD              
-#>                                                                                               7.52                                     4   MODERATE          
-#>                                                                                               7.52                                     5   MILD              
-#>                                                                                            <No data>                                   6   <No data>         
-#>                                                        <No data>                              7.52                                     1   MODERATE          
-#> AB12345-BRA-1-id-236               32       August 21, 2021 @ 06:13 PM UTC                    7.66                                     1   SEVERE            
-#>                                                                                               7.66                                     2   SEVERE            
-#>                                                                                               7.66                                     3   SEVERE            
-#> AB12345-BRA-1-id-265               25         May 13, 2020 @ 12:38 AM UTC                    10.32                             <No data>   MODERATE          
-#>                                                                                              10.32                                     2   MODERATE          
-#> <No data>                          47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     4   MODERATE
-```
+\
+`default_fmt`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`\
+`  all ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``na_str ``=`` ``"<No data>"``, align ``=`` ``"left"``)``,`\
+`  numeric ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``format ``=`` ``"xx"``, na_str ``=`` ``"<No data>"``, align ``=`` ``"right"``)``,`\
+`  POSIXt ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``format ``=`` ``date_fmt``(``"%B %d, %Y @ %I:%M %p %Z"``)``, na_str ``=`` ``"<No data>"``)`\
+`)`\
+\
+`col_fmt`` ``<-`` `[`list`](https://rdrr.io/r/base/list.html)`(`\
+`  BMRKR1 ``=`` `[`fmt_config`](https://pharmaverse.github.io/formatters/latest-tag/reference/fmt_config.html)`(``format ``=`` ``"xx.xx"``, na_str ``=`` ``"<No data>"``, align ``=`` ``"decimal"``)`\
+`)`\
+\
+`lsting_5`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(`\
+`  df ``=`` ``adae``,`\
+`  key_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"USUBJID"``, ``"AGE"``, ``"TRTSDTM"``)``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"BMRKR1"``, ``"ASEQ"``, ``"AESEV"``)``,`\
+`  default_formatting ``=`` ``default_fmt``,`\
+`  col_formatting ``=`` ``col_fmt`\
+`)`\
+\
+`lsting_5`\
+`#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> AB12345-BRA-1-id-134               47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     1   MODERATE          `\
+`#>                                                                                               6.46                                     3   MODERATE          `\
+`#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                                     2   MODERATE          `\
+`#> AB12345-BRA-1-id-141               35      February 28, 2021 @ 11:47 PM UTC                   7.52                                     2   MILD              `\
+`#>                                                                                               7.52                                     3   MILD              `\
+`#>                                                                                               7.52                                     4   MODERATE          `\
+`#>                                                                                               7.52                                     5   MILD              `\
+`#>                                                                                            <No data>                                   6   <No data>         `\
+`#>                                                        <No data>                              7.52                                     1   MODERATE          `\
+`#> AB12345-BRA-1-id-236               32       August 21, 2021 @ 06:13 PM UTC                    7.66                                     1   SEVERE            `\
+`#>                                                                                               7.66                                     2   SEVERE            `\
+`#>                                                                                               7.66                                     3   SEVERE            `\
+`#> AB12345-BRA-1-id-265               25         May 13, 2020 @ 12:38 AM UTC                    10.32                             <No data>   MODERATE          `\
+`#>                                                                                              10.32                                     2   MODERATE          `\
+`#> <No data>                          47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     4   MODERATE`
 
 Now all of the columns present in our listing are formatted according to
 our specifications. Note that format configurations supplied to
@@ -361,37 +345,35 @@ analysis (in days) by subtracting “Analysis Start Relative Day”
 (`ASTDY`) from “Analysis End Relative Day” (`AENDY`). This can be done
 as follows:
 
-``` r
-
-lsting_6 <- lsting_5 %>%
-  add_listing_col(
-    name = "Length of\nAnalysis",
-    fun = function(df) df$AENDY - df$ASTDY,
-    format = "xx.x",
-    na_str = "NE",
-    align = "center"
-  )
-
-lsting_6
-#>                                                                                                                                                                 Length of
-#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity   Analysis 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> AB12345-BRA-1-id-134               47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     1   MODERATE               267.0  
-#>                                                                                               6.46                                     3   MODERATE               228.0  
-#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                                     2   MODERATE               255.0  
-#> AB12345-BRA-1-id-141               35      February 28, 2021 @ 11:47 PM UTC                   7.52                                     2   MILD                   420.0  
-#>                                                                                               7.52                                     3   MILD                   23.0   
-#>                                                                                               7.52                                     4   MODERATE               93.0   
-#>                                                                                               7.52                                     5   MILD                   43.0   
-#>                                                                                            <No data>                                   6   <No data>               NE    
-#>                                                        <No data>                              7.52                                     1   MODERATE                7.0   
-#> AB12345-BRA-1-id-236               32       August 21, 2021 @ 06:13 PM UTC                    7.66                                     1   SEVERE                 410.0  
-#>                                                                                               7.66                                     2   SEVERE                 517.0  
-#>                                                                                               7.66                                     3   SEVERE                  4.0   
-#> AB12345-BRA-1-id-265               25         May 13, 2020 @ 12:38 AM UTC                    10.32                             <No data>   MODERATE               44.0   
-#>                                                                                              10.32                                     2   MODERATE               162.0  
-#> <No data>                          47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     4   MODERATE                NE
-```
+\
+`lsting_6`` ``<-`` ``lsting_5`` ``|>`\
+`  `[`add_listing_col`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(`\
+`    name ``=`` ``"Length of\nAnalysis"``,`\
+`    fun ``=`` ``function``(``df``)`` ``df``$``AENDY`` ``-`` ``df``$``ASTDY``,`\
+`    format ``=`` ``"xx.x"``,`\
+`    na_str ``=`` ``"NE"``,`\
+`    align ``=`` ``"center"`\
+`  ``)`\
+\
+`lsting_6`\
+`#>                                                                                                                                                                 Length of`\
+`#> Unique Subject Identifier      Age      Datetime of First Exposure to Treatment   Continous Level Biomarker 1   Analysis Sequence Number   Severity/Intensity   Analysis `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> AB12345-BRA-1-id-134               47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     1   MODERATE               267.0  `\
+`#>                                                                                               6.46                                     3   MODERATE               228.0  `\
+`#>                             <No data>        June 10, 2021 @ 01:26 PM UTC                     6.46                                     2   MODERATE               255.0  `\
+`#> AB12345-BRA-1-id-141               35      February 28, 2021 @ 11:47 PM UTC                   7.52                                     2   MILD                   420.0  `\
+`#>                                                                                               7.52                                     3   MILD                   23.0   `\
+`#>                                                                                               7.52                                     4   MODERATE               93.0   `\
+`#>                                                                                               7.52                                     5   MILD                   43.0   `\
+`#>                                                                                            <No data>                                   6   <No data>               NE    `\
+`#>                                                        <No data>                              7.52                                     1   MODERATE                7.0   `\
+`#> AB12345-BRA-1-id-236               32       August 21, 2021 @ 06:13 PM UTC                    7.66                                     1   SEVERE                 410.0  `\
+`#>                                                                                               7.66                                     2   SEVERE                 517.0  `\
+`#>                                                                                               7.66                                     3   SEVERE                  4.0   `\
+`#> AB12345-BRA-1-id-265               25         May 13, 2020 @ 12:38 AM UTC                    10.32                             <No data>   MODERATE               44.0   `\
+`#>                                                                                              10.32                                     2   MODERATE               162.0  `\
+`#> <No data>                          47        June 10, 2021 @ 01:26 PM UTC                     6.46                                     4   MODERATE                NE`
 
 ------------------------------------------------------------------------
 
@@ -403,4 +385,4 @@ to `as_listing` and the `add_listing_col` function to customize how
 listings are rendered.
 
 **For more information please explore the [rlistings
-website](https://insightsengineering.github.io/rlistings/main/).**
+website](https://pharmaverse.github.io/rlistings/main/).**

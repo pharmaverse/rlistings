@@ -48,10 +48,8 @@ the listing using `paginate_listing`.
 
 We first load in the `rlistings` package.
 
-``` r
-
-library(rlistings)
-```
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`rlistings`](https://pharmaverse.github.io/rlistings/)`)`
 
 For the purpose of this example we will use the dummy ADAE dataset
 provided within the `formatters` package as our data frame, which
@@ -59,60 +57,56 @@ consists of 48 columns of adverse event patient data, and one or more
 rows per patient. For the purpose of this example, we will subset the
 data and only use the first 100 records of the dataset.
 
-``` r
-
-adae <- ex_adae[1:100, ]
-```
+\
+`adae`` ``<-`` ``ex_adae``[``1``:``100``, ``]`
 
 Now we will create a basic listing.
 
-``` r
-
-lsting <- as_listing(
-  df = adae,
-  key_cols = c("USUBJID", "ARM"),
-  disp_cols = c("AETOXGR", "AEDECOD", "AESEV"),
-  main_title = "Title",
-  main_footer = "Footer"
-)
-
-head(lsting, 20)
-#> Title
-#> 
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>   AB12345-BRA-1-id-141            C: Combination                    3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-236              B: Placebo                      5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-265            C: Combination                    2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>    AB12345-BRA-1-id-42              A: Drug X                       2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-```
+\
+`lsting`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(`\
+`  df ``=`` ``adae``,`\
+`  key_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"USUBJID"``, ``"ARM"``)``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"AETOXGR"``, ``"AEDECOD"``, ``"AESEV"``)``,`\
+`  main_title ``=`` ``"Title"``,`\
+`  main_footer ``=`` ``"Footer"`\
+`)`\
+\
+[`head`](https://rdrr.io/r/utils/head.html)`(``lsting``, ``20``)`\
+`#> Title`\
+`#> `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>   AB12345-BRA-1-id-141            C: Combination                    3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-236              B: Placebo                      5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-265            C: Combination                    2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                       2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`
 
 In the listing output above, notice that there are two key columns that
 we expect to be repeated on each page after pagination.
 
 Next, we see how the pagination works with the default settings via the
 `paginate_listing` function that is a wrapper of
-[`paginate_to_mpfs()`](https://insightsengineering.github.io/formatters/latest-tag/reference/paginate_indices.html)
+[`paginate_to_mpfs()`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)
 that is the core pagination function and lives in `formatters`. Default
 pagination applies the following settings, which are adjustable via the
 parameter specified in parentheses:
@@ -132,249 +126,247 @@ These parameters, as well as some additional arguments not listed here
 [`?paginate_listing`](https://pharmaverse.github.io/rlistings/reference/paginate.md)
 for all options), can be set to fine-tune your pagination output.
 
-``` r
-
-paginate_listing(lsting)
-#> --- Page 1/4 ---
-#> Title
-#> 
-#> ————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade
-#> ————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     2           
-#>                                                                     2           
-#>   AB12345-BRA-1-id-141            C: Combination                    3           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-1-id-236              B: Placebo                      5           
-#>                                                                     5           
-#>                                                                     5           
-#>   AB12345-BRA-1-id-265            C: Combination                    2           
-#>                                                                     3           
-#>                                                                     5           
-#>                                                                     4           
-#>    AB12345-BRA-1-id-42              A: Drug X                       2           
-#>                                                                     5           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     5           
-#>                                                                     2           
-#>                                                                     4           
-#>                                                                     5           
-#>    AB12345-BRA-1-id-65              B: Placebo                      2           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     4           
-#>    AB12345-BRA-1-id-93              A: Drug X                       3           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     4           
-#>                                                                     5           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     1           
-#>   AB12345-BRA-11-id-237           C: Combination                    1           
-#>                                                                     4           
-#>                                                                     3           
-#>   AB12345-BRA-11-id-321           C: Combination                    1           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-345             A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-397             A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     3           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-50              A: Drug X                       3           
-#>                                                                     4           
-#>                                                                     2           
-#>    AB12345-BRA-11-id-9            C: Combination                    3           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     3           
-#>   AB12345-BRA-12-id-59              B: Placebo                      5           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     2           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     4           
-#> ————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> 
-#> --- Page 2/4 ---
-#> Title
-#> 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>   AB12345-BRA-1-id-141            C: Combination              dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-236              B: Placebo                dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-265            C: Combination              dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>    AB12345-BRA-1-id-42              A: Drug X                 dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-1-id-65              B: Placebo                dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>    AB12345-BRA-1-id-93              A: Drug X                 dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-11-id-237           C: Combination              dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-11-id-321           C: Combination              dcd A.1.1.1.1               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-345             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-397             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-50              A: Drug X                 dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>    AB12345-BRA-11-id-9            C: Combination              dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> 
-#> --- Page 3/4 ---
-#> Title
-#> 
-#> ————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade
-#> ————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-12-id-59              B: Placebo                      3           
-#>   AB12345-BRA-13-id-177             A: Drug X                       3           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     4           
-#>                                                                     3           
-#>                                                                     5           
-#>   AB12345-BRA-14-id-120           C: Combination                    2           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>   AB12345-BRA-14-id-23              A: Drug X                       3           
-#> ————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> 
-#> --- Page 4/4 ---
-#> Title
-#> 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.4.2             MODERATE     
-#>   AB12345-BRA-13-id-177             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-14-id-120           C: Combination              dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-14-id-23              A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-```
+\
+[`paginate_listing`](https://pharmaverse.github.io/rlistings/reference/paginate.md)`(``lsting``)`\
+`#> --- Page 1/4 ---`\
+`#> Title`\
+`#> `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade`\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>   AB12345-BRA-1-id-141            C: Combination                    3           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-1-id-236              B: Placebo                      5           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-1-id-265            C: Combination                    2           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                       2           `\
+`#>                                                                     5           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     5           `\
+`#>                                                                     2           `\
+`#>                                                                     4           `\
+`#>                                                                     5           `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                      2           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                       3           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     4           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>   AB12345-BRA-11-id-237           C: Combination                    1           `\
+`#>                                                                     4           `\
+`#>                                                                     3           `\
+`#>   AB12345-BRA-11-id-321           C: Combination                    1           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                       3           `\
+`#>                                                                     4           `\
+`#>                                                                     2           `\
+`#>    AB12345-BRA-11-id-9            C: Combination                    3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     3           `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                      5           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     2           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     4           `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> `\
+`#> --- Page 2/4 ---`\
+`#> Title`\
+`#> `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>   AB12345-BRA-1-id-141            C: Combination              dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-236              B: Placebo                dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-265            C: Combination              dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                 dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                 dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-11-id-237           C: Combination              dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-11-id-321           C: Combination              dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                 dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>    AB12345-BRA-11-id-9            C: Combination              dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> `\
+`#> --- Page 3/4 ---`\
+`#> Title`\
+`#> `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade`\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-12-id-59              B: Placebo                      3           `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                       3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-14-id-120           C: Combination                    2           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                       3           `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> `\
+`#> --- Page 4/4 ---`\
+`#> Title`\
+`#> `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.4.2             MODERATE     `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-14-id-120           C: Combination              dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`
 
 We can see from the above output that applying pagination separated our
 listing into 4 pages (list elements). Each page includes the two key
@@ -428,139 +420,137 @@ Considerations when using `lpp` and `cpp`:
 See the following example which uses `lpp` and `cpp` instead of
 `page_type` to specify page size:
 
-``` r
-
-paginate_listing(lsting, lpp = 50, cpp = NULL)
-#> --- Page 1/3 ---
-#> Title
-#> 
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>   AB12345-BRA-1-id-141            C: Combination                    3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-236              B: Placebo                      5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-265            C: Combination                    2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>    AB12345-BRA-1-id-42              A: Drug X                       2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-1-id-65              B: Placebo                      2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>    AB12345-BRA-1-id-93              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-11-id-237           C: Combination                    1                   dcd D.2.1.5.3               MILD       
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> 
-#> --- Page 2/3 ---
-#> Title
-#> 
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-11-id-237           C: Combination                    3                   dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-11-id-321           C: Combination                    1                   dcd A.1.1.1.1               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-345             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-397             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-50              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>    AB12345-BRA-11-id-9            C: Combination                    3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-12-id-59              B: Placebo                      5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>   AB12345-BRA-13-id-177             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> 
-#> --- Page 3/3 ---
-#> Title
-#> 
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-13-id-177             A: Drug X                       1                   dcd D.2.1.5.3               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-14-id-120           C: Combination                    2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-14-id-23              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-```
+\
+[`paginate_listing`](https://pharmaverse.github.io/rlistings/reference/paginate.md)`(``lsting``, lpp ``=`` ``50``, cpp ``=`` ``NULL``)`\
+`#> --- Page 1/3 ---`\
+`#> Title`\
+`#> `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>   AB12345-BRA-1-id-141            C: Combination                    3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-236              B: Placebo                      5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-265            C: Combination                    2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                       2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                      2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-11-id-237           C: Combination                    1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> `\
+`#> --- Page 2/3 ---`\
+`#> Title`\
+`#> `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-11-id-237           C: Combination                    3                   dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-11-id-321           C: Combination                    1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>    AB12345-BRA-11-id-9            C: Combination                    3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                      5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> `\
+`#> --- Page 3/3 ---`\
+`#> Title`\
+`#> `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-13-id-177             A: Drug X                       1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-14-id-120           C: Combination                    2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`
 
 Here we set `lpp` to 50 which shortens the vertical length of each page
 to a maximum of 50 lines (8 rows of header/footer information + 42 rows
@@ -612,242 +602,240 @@ will occur.
 See an example using `export_as_txt` below. We use the `cat` function to
 make the output more easily readable in the console:
 
-``` r
-
-cat(export_as_txt(lsting))
-#> Title
-#> 
-#> ————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade
-#> ————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     2           
-#>                                                                     2           
-#>   AB12345-BRA-1-id-141            C: Combination                    3           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-1-id-236              B: Placebo                      5           
-#>                                                                     5           
-#>                                                                     5           
-#>   AB12345-BRA-1-id-265            C: Combination                    2           
-#>                                                                     3           
-#>                                                                     5           
-#>                                                                     4           
-#>    AB12345-BRA-1-id-42              A: Drug X                       2           
-#>                                                                     5           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     5           
-#>                                                                     2           
-#>                                                                     4           
-#>                                                                     5           
-#>    AB12345-BRA-1-id-65              B: Placebo                      2           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     4           
-#>    AB12345-BRA-1-id-93              A: Drug X                       3           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     4           
-#>                                                                     5           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     1           
-#>   AB12345-BRA-11-id-237           C: Combination                    1           
-#>                                                                     4           
-#>                                                                     3           
-#>   AB12345-BRA-11-id-321           C: Combination                    1           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-345             A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-397             A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     3           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-50              A: Drug X                       3           
-#>                                                                     4           
-#>                                                                     2           
-#>    AB12345-BRA-11-id-9            C: Combination                    3           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     3           
-#>   AB12345-BRA-12-id-59              B: Placebo                      5           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     2           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     4           
-#> ————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>   AB12345-BRA-1-id-141            C: Combination              dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-236              B: Placebo                dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-265            C: Combination              dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>    AB12345-BRA-1-id-42              A: Drug X                 dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-1-id-65              B: Placebo                dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>    AB12345-BRA-1-id-93              A: Drug X                 dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-11-id-237           C: Combination              dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-11-id-321           C: Combination              dcd A.1.1.1.1               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-345             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-397             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-50              A: Drug X                 dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>    AB12345-BRA-11-id-9            C: Combination              dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> 
-#> ————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade
-#> ————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-12-id-59              B: Placebo                      3           
-#>   AB12345-BRA-13-id-177             A: Drug X                       3           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     4           
-#>                                                                     3           
-#>                                                                     5           
-#>   AB12345-BRA-14-id-120           C: Combination                    2           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>   AB12345-BRA-14-id-23              A: Drug X                       3           
-#> ————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.4.2             MODERATE     
-#>   AB12345-BRA-13-id-177             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-14-id-120           C: Combination              dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-14-id-23              A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-```
+\
+[`cat`](https://rdrr.io/r/base/cat.html)`(`[`export_as_txt`](https://pharmaverse.github.io/formatters/latest-tag/reference/export_as_txt.html)`(``lsting``)``)`\
+`#> Title`\
+`#> `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade`\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>   AB12345-BRA-1-id-141            C: Combination                    3           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-1-id-236              B: Placebo                      5           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-1-id-265            C: Combination                    2           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                       2           `\
+`#>                                                                     5           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     5           `\
+`#>                                                                     2           `\
+`#>                                                                     4           `\
+`#>                                                                     5           `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                      2           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                       3           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     4           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>   AB12345-BRA-11-id-237           C: Combination                    1           `\
+`#>                                                                     4           `\
+`#>                                                                     3           `\
+`#>   AB12345-BRA-11-id-321           C: Combination                    1           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                       3           `\
+`#>                                                                     4           `\
+`#>                                                                     2           `\
+`#>    AB12345-BRA-11-id-9            C: Combination                    3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     3           `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                      5           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     2           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     4           `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>   AB12345-BRA-1-id-141            C: Combination              dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-236              B: Placebo                dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-265            C: Combination              dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                 dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                 dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-11-id-237           C: Combination              dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-11-id-321           C: Combination              dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                 dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>    AB12345-BRA-11-id-9            C: Combination              dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade`\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-12-id-59              B: Placebo                      3           `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                       3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-14-id-120           C: Combination                    2           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                       3           `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.4.2             MODERATE     `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-14-id-120           C: Combination              dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`
 
 Notice the page break symbol (`\s\n`) is repeated where page breaks
 occur (i.e. prior to the title on each new page).
@@ -858,7 +846,7 @@ The `export_as_rtf` function can be used similarly to `export_as_txt` to
 paginate and export listings except this function will write output to a
 supplied `.rtf` file containing the listing output. If no file is
 supplied, the `RTF` formatted output will be printed to the console. See
-[`?export_as_rtf`](https://insightsengineering.github.io/formatters/latest-tag/reference/export_as_rtf.html)
+[`?export_as_rtf`](https://pharmaverse.github.io/formatters/latest-tag/reference/export_as_rtf.html)
 for more details on this function.
 
 ## Pagination by Parameter
@@ -871,145 +859,143 @@ printed on a separate page. This can currently be done with `rlistings`
 using the `split_listing_by_var` function, which can be applied to your
 pre-existing listing as follows:
 
-``` r
-
-lsting_by_arm <- lsting %>%
-  split_into_pages_by_var("ARM", page_prefix = "Treatment Arm")
-
-lsting_by_arm
-#> $`A: Drug X`
-#> Title
-#> Treatment Arm: A: Drug X
-#> 
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>    AB12345-BRA-1-id-42              A: Drug X                       2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-1-id-93              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-11-id-345             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-397             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-50              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>   AB12345-BRA-13-id-177             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-14-id-23              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> 
-#> $`C: Combination`
-#> Title
-#> Treatment Arm: C: Combination
-#> 
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-141            C: Combination                    3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-265            C: Combination                    2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>   AB12345-BRA-11-id-237           C: Combination                    1                   dcd D.2.1.5.3               MILD       
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-11-id-321           C: Combination                    1                   dcd A.1.1.1.1               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-11-id-9            C: Combination                    3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-14-id-120           C: Combination                    2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     2                   dcd A.1.1.1.2             MODERATE     
-#>                                                                     1                   dcd A.1.1.1.1               MILD       
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> 
-#> $`B: Placebo`
-#> Title
-#> Treatment Arm: B: Placebo
-#> 
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-236              B: Placebo                      5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-1-id-65              B: Placebo                      2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     5                   dcd B.1.1.1.1              SEVERE      
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>   AB12345-BRA-12-id-59              B: Placebo                      5                   dcd D.1.1.1.1              SEVERE      
-#>                                                                     1                   dcd B.2.2.3.1               MILD       
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     2                   dcd C.2.1.2.1             MODERATE     
-#>                                                                     3                   dcd B.2.1.2.1             MODERATE     
-#>                                                                     1                   dcd D.2.1.5.3               MILD       
-#>                                                                     4                   dcd C.1.1.1.3              SEVERE      
-#>                                                                     3                   dcd D.1.1.4.2             MODERATE     
-#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-```
+\
+`lsting_by_arm`` ``<-`` ``lsting`` `[`%>%`](https://magrittr.tidyverse.org/reference/pipe.html)\
+`  `[`split_into_pages_by_var`](https://pharmaverse.github.io/rlistings/reference/split_into_pages_by_var.md)`(``"ARM"``, page_prefix ``=`` ``"Treatment Arm"``)`\
+\
+`lsting_by_arm`\
+`` #> $`A: Drug X` ``\
+`#> Title`\
+`#> Treatment Arm: A: Drug X`\
+`#> `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                       2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                       3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                       3                   dcd B.2.1.2.1             MODERATE     `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> `\
+`` #> $`C: Combination` ``\
+`#> Title`\
+`#> Treatment Arm: C: Combination`\
+`#> `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-141            C: Combination                    3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-265            C: Combination                    2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>   AB12345-BRA-11-id-237           C: Combination                    1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-11-id-321           C: Combination                    1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-11-id-9            C: Combination                    3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-14-id-120           C: Combination                    2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     2                   dcd A.1.1.1.2             MODERATE     `\
+`#>                                                                     1                   dcd A.1.1.1.1               MILD       `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> `\
+`` #> $`B: Placebo` ``\
+`#> Title`\
+`#> Treatment Arm: B: Placebo`\
+`#> `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade   Dictionary-Derived Term   Severity/Intensity`\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-236              B: Placebo                      5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                      2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     5                   dcd B.1.1.1.1              SEVERE      `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                      5                   dcd D.1.1.1.1              SEVERE      `\
+`#>                                                                     1                   dcd B.2.2.3.1               MILD       `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     2                   dcd C.2.1.2.1             MODERATE     `\
+`#>                                                                     3                   dcd B.2.1.2.1             MODERATE     `\
+`#>                                                                     1                   dcd D.2.1.5.3               MILD       `\
+`#>                                                                     4                   dcd C.1.1.1.3              SEVERE      `\
+`#>                                                                     3                   dcd D.1.1.4.2             MODERATE     `\
+`#> ———————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`
 
 As with `paginate_listing`, this creates a list of listings where each
 list element corresponds to a new page, but with each page corresponding
@@ -1033,264 +1019,262 @@ correct text format.
 
 For example:
 
-``` r
-
-cat(export_as_txt(lsting_by_arm))
-#> Title
-#> Treatment Arm: A: Drug X
-#> 
-#> ————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade
-#> ————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     2           
-#>                                                                     2           
-#>    AB12345-BRA-1-id-42              A: Drug X                       2           
-#>                                                                     5           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     5           
-#>                                                                     2           
-#>                                                                     4           
-#>                                                                     5           
-#>    AB12345-BRA-1-id-93              A: Drug X                       3           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     4           
-#>                                                                     5           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     1           
-#>   AB12345-BRA-11-id-345             A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-397             A: Drug X                       3           
-#>                                                                     3           
-#>                                                                     3           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-11-id-50              A: Drug X                       3           
-#>                                                                     4           
-#>                                                                     2           
-#>   AB12345-BRA-13-id-177             A: Drug X                       3           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     4           
-#>                                                                     3           
-#>                                                                     5           
-#>   AB12345-BRA-14-id-23              A: Drug X                       3           
-#> ————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> Treatment Arm: A: Drug X
-#> 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-134              A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>    AB12345-BRA-1-id-42              A: Drug X                 dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-1-id-93              A: Drug X                 dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.2.2.3.1               MILD       
-#>   AB12345-BRA-11-id-345             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-397             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-11-id-50              A: Drug X                 dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>   AB12345-BRA-13-id-177             A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>   AB12345-BRA-14-id-23              A: Drug X                 dcd B.2.1.2.1             MODERATE     
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> Treatment Arm: C: Combination
-#> 
-#> ————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade
-#> ————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-141            C: Combination                    3           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     5           
-#>   AB12345-BRA-1-id-265            C: Combination                    2           
-#>                                                                     3           
-#>                                                                     5           
-#>                                                                     4           
-#>   AB12345-BRA-11-id-237           C: Combination                    1           
-#>                                                                     4           
-#>                                                                     3           
-#>   AB12345-BRA-11-id-321           C: Combination                    1           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     5           
-#>    AB12345-BRA-11-id-9            C: Combination                    3           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     5           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     3           
-#>   AB12345-BRA-14-id-120           C: Combination                    2           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#>                                                                     2           
-#>                                                                     2           
-#>                                                                     1           
-#> ————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> Treatment Arm: C: Combination
-#> 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-141            C: Combination              dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>   AB12345-BRA-1-id-265            C: Combination              dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>   AB12345-BRA-11-id-237           C: Combination              dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-11-id-321           C: Combination              dcd A.1.1.1.1               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-11-id-9            C: Combination              dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>   AB12345-BRA-14-id-120           C: Combination              dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.2             MODERATE     
-#>                                                               dcd A.1.1.1.1               MILD       
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.2.3.1               MILD       
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> Treatment Arm: B: Placebo
-#> 
-#> ————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade
-#> ————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-236              B: Placebo                      5           
-#>                                                                     5           
-#>                                                                     5           
-#>    AB12345-BRA-1-id-65              B: Placebo                      2           
-#>                                                                     1           
-#>                                                                     5           
-#>                                                                     4           
-#>   AB12345-BRA-12-id-59              B: Placebo                      5           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     3           
-#>                                                                     2           
-#>                                                                     3           
-#>                                                                     1           
-#>                                                                     4           
-#>                                                                     3           
-#> ————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-#> \s\nTitle
-#> Treatment Arm: B: Placebo
-#> 
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#>   AB12345-BRA-1-id-236              B: Placebo                dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>    AB12345-BRA-1-id-65              B: Placebo                dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.1.1.1.1              SEVERE      
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.1.1              SEVERE      
-#>                                                               dcd B.2.2.3.1               MILD       
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd C.2.1.2.1             MODERATE     
-#>                                                               dcd B.2.1.2.1             MODERATE     
-#>                                                               dcd D.2.1.5.3               MILD       
-#>                                                               dcd C.1.1.1.3              SEVERE      
-#>                                                               dcd D.1.1.4.2             MODERATE     
-#> —————————————————————————————————————————————————————————————————————————————————————————————————————
-#> 
-#> Footer
-```
+\
+[`cat`](https://rdrr.io/r/base/cat.html)`(`[`export_as_txt`](https://pharmaverse.github.io/formatters/latest-tag/reference/export_as_txt.html)`(``lsting_by_arm``)``)`\
+`#> Title`\
+`#> Treatment Arm: A: Drug X`\
+`#> `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade`\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                       2           `\
+`#>                                                                     5           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     5           `\
+`#>                                                                     2           `\
+`#>                                                                     4           `\
+`#>                                                                     5           `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                       3           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     4           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                       3           `\
+`#>                                                                     3           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                       3           `\
+`#>                                                                     4           `\
+`#>                                                                     2           `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                       3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                       3           `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> Treatment Arm: A: Drug X`\
+`#> `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-134              A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>    AB12345-BRA-1-id-42              A: Drug X                 dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-1-id-93              A: Drug X                 dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>   AB12345-BRA-11-id-345             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-397             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-11-id-50              A: Drug X                 dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>   AB12345-BRA-13-id-177             A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-14-id-23              A: Drug X                 dcd B.2.1.2.1             MODERATE     `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> Treatment Arm: C: Combination`\
+`#> `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade`\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-141            C: Combination                    3           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>   AB12345-BRA-1-id-265            C: Combination                    2           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>   AB12345-BRA-11-id-237           C: Combination                    1           `\
+`#>                                                                     4           `\
+`#>                                                                     3           `\
+`#>   AB12345-BRA-11-id-321           C: Combination                    1           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     5           `\
+`#>    AB12345-BRA-11-id-9            C: Combination                    3           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     3           `\
+`#>   AB12345-BRA-14-id-120           C: Combination                    2           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#>                                                                     2           `\
+`#>                                                                     2           `\
+`#>                                                                     1           `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> Treatment Arm: C: Combination`\
+`#> `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-141            C: Combination              dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>   AB12345-BRA-1-id-265            C: Combination              dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>   AB12345-BRA-11-id-237           C: Combination              dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-11-id-321           C: Combination              dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-11-id-9            C: Combination              dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>   AB12345-BRA-14-id-120           C: Combination              dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.2             MODERATE     `\
+`#>                                                               dcd A.1.1.1.1               MILD       `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> Treatment Arm: B: Placebo`\
+`#> `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Analysis Toxicity Grade`\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-236              B: Placebo                      5           `\
+`#>                                                                     5           `\
+`#>                                                                     5           `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                      2           `\
+`#>                                                                     1           `\
+`#>                                                                     5           `\
+`#>                                                                     4           `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                      5           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     3           `\
+`#>                                                                     2           `\
+`#>                                                                     3           `\
+`#>                                                                     1           `\
+`#>                                                                     4           `\
+`#>                                                                     3           `\
+`#> ————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`\
+`#> \s\nTitle`\
+`#> Treatment Arm: B: Placebo`\
+`#> `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> Unique Subject Identifier   Description of Planned Arm   Dictionary-Derived Term   Severity/Intensity`\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#>   AB12345-BRA-1-id-236              B: Placebo                dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>    AB12345-BRA-1-id-65              B: Placebo                dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.1.1.1.1              SEVERE      `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>   AB12345-BRA-12-id-59              B: Placebo                dcd D.1.1.1.1              SEVERE      `\
+`#>                                                               dcd B.2.2.3.1               MILD       `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd C.2.1.2.1             MODERATE     `\
+`#>                                                               dcd B.2.1.2.1             MODERATE     `\
+`#>                                                               dcd D.2.1.5.3               MILD       `\
+`#>                                                               dcd C.1.1.1.3              SEVERE      `\
+`#>                                                               dcd D.1.1.4.2             MODERATE     `\
+`#> —————————————————————————————————————————————————————————————————————————————————————————————————————`\
+`#> `\
+`#> Footer`
 
 Again, we use the `cat` function to make the text output more easily
 readable in the console.

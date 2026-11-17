@@ -11,27 +11,25 @@ object into multiple pages.
 
 Consider the following example:
 
-``` r
-
-library(rlistings)
-
-iris2 <- do.call(rbind, rep(list(iris), 40))
-rlist <- as_listing(iris2,
-  key_cols = "Species",
-  disp_cols = c("Sepal.Length", "Sepal.Width", "Petal.Width", "Petal.Length")
-)
-
-bench::mark(
-  a = paginate_to_mpfs(rlist[1:1000, ]),
-  b = paginate_to_mpfs(rlist[1:2000, ]),
-  c = paginate_to_mpfs(rlist[1:3000, ]),
-  d = paginate_to_mpfs(rlist[1:4000, ]),
-  e = paginate_to_mpfs(rlist[1:5000, ]),
-  f = paginate_to_mpfs(rlist[1:6000, ]),
-  check = FALSE,
-  max_iterations = 1
-)
-```
+\
+[`library`](https://rdrr.io/r/base/library.html)`(`[`rlistings`](https://pharmaverse.github.io/rlistings/)`)`\
+\
+`iris2`` ``<-`` `[`do.call`](https://rdrr.io/r/base/do.call.html)`(``rbind``, `[`rep`](https://rdrr.io/r/base/rep.html)`(`[`list`](https://rdrr.io/r/base/list.html)`(``iris``)``, ``40``)``)`\
+`rlist`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(``iris2``,`\
+`  key_cols ``=`` ``"Species"``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"Sepal.Length"``, ``"Sepal.Width"``, ``"Petal.Width"``, ``"Petal.Length"``)`\
+`)`\
+\
+`bench``::``mark``(`\
+`  a ``=`` `[`paginate_to_mpfs`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)`(``rlist``[``1``:``1000``, ``]``)``,`\
+`  b ``=`` `[`paginate_to_mpfs`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)`(``rlist``[``1``:``2000``, ``]``)``,`\
+`  c ``=`` `[`paginate_to_mpfs`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)`(``rlist``[``1``:``3000``, ``]``)``,`\
+`  d ``=`` `[`paginate_to_mpfs`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)`(``rlist``[``1``:``4000``, ``]``)``,`\
+`  e ``=`` `[`paginate_to_mpfs`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)`(``rlist``[``1``:``5000``, ``]``)``,`\
+`  f ``=`` `[`paginate_to_mpfs`](https://pharmaverse.github.io/formatters/latest-tag/reference/paginate_indices.html)`(``rlist``[``1``:``6000``, ``]``)``,`\
+`  check ``=`` ``FALSE``,`\
+`  max_iterations ``=`` ``1`\
+`)`
 
 It gives the following benchmark results:
 
@@ -54,41 +52,37 @@ To decrease the runtime and prevent memory issues, we would recommend
 splitting the listing object by a grouping variable and exporting the
 output separately. Consider the following demonstration:
 
-``` r
-
-iris3 <- cbind(iris2, gp = rep(c(1, 2, 3, 4, 5, 6), 1000))
-rlist3 <- as_listing(iris3,
-  key_cols = "Species",
-  disp_cols = c("Sepal.Length", "Sepal.Width", "Petal.Width", "Petal.Length")
-)
-
-start.time <- Sys.time()
-rlist3 |>
-  split(rlist3$gp) |>
-  lapply(FUN = paginate_to_mpfs)
-end.time <- Sys.time()
-
-time.taken <- end.time - start.time
-time.taken
-
-# > Time difference of 36.06119 secs
-```
+\
+`iris3`` ``<-`` `[`cbind`](https://rdrr.io/r/base/cbind.html)`(``iris2``, gp ``=`` `[`rep`](https://rdrr.io/r/base/rep.html)`(`[`c`](https://rdrr.io/r/base/c.html)`(``1``, ``2``, ``3``, ``4``, ``5``, ``6``)``, ``1000``)``)`\
+`rlist3`` ``<-`` `[`as_listing`](https://pharmaverse.github.io/rlistings/reference/listings.md)`(``iris3``,`\
+`  key_cols ``=`` ``"Species"``,`\
+`  disp_cols ``=`` `[`c`](https://rdrr.io/r/base/c.html)`(``"Sepal.Length"``, ``"Sepal.Width"``, ``"Petal.Width"``, ``"Petal.Length"``)`\
+`)`\
+\
+`start.time`` ``<-`` `[`Sys.time`](https://rdrr.io/r/base/Sys.time.html)`(``)`\
+`rlist3`` ``|>`\
+`  `[`split`](https://rdrr.io/r/base/split.html)`(``rlist3``$``gp``)`` ``|>`\
+`  `[`lapply`](https://rdrr.io/r/base/lapply.html)`(``FUN ``=`` ``paginate_to_mpfs``)`\
+`end.time`` ``<-`` `[`Sys.time`](https://rdrr.io/r/base/Sys.time.html)`(``)`\
+\
+`time.taken`` ``<-`` ``end.time`` ``-`` ``start.time`\
+`time.taken`\
+\
+`# > Time difference of 36.06119 secs`
 
 In principle, you could consider processing this work with
 multi-threading to further reduce the runtime.
 
-``` r
-
-library(parallel)
-
-start.time <- Sys.time()
-rlist3 |>
-  split(rlist3$gp) |>
-  mclapply(FUN = paginate_to_mpfs)
-end.time <- Sys.time()
-
-time.taken <- end.time - start.time
-time.taken
-
-#> Time difference of 18.20406 secs
-```
+\
+[`library`](https://rdrr.io/r/base/library.html)`(``parallel``)`\
+\
+`start.time`` ``<-`` `[`Sys.time`](https://rdrr.io/r/base/Sys.time.html)`(``)`\
+`rlist3`` ``|>`\
+`  `[`split`](https://rdrr.io/r/base/split.html)`(``rlist3``$``gp``)`` ``|>`\
+`  `[`mclapply`](https://rdrr.io/r/parallel/mclapply.html)`(``FUN ``=`` ``paginate_to_mpfs``)`\
+`end.time`` ``<-`` `[`Sys.time`](https://rdrr.io/r/base/Sys.time.html)`(``)`\
+\
+`time.taken`` ``<-`` ``end.time`` ``-`` ``start.time`\
+`time.taken`\
+\
+`#> Time difference of 18.20406 secs`

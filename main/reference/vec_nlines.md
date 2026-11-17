@@ -52,7 +52,7 @@ vec_nlines(
   the type of rounding to perform. Allowed values are (`"iec"`
   (default), `"iec_mod"` or `"sas"`).\
   See
-  [`formatters::format_value()`](https://insightsengineering.github.io/formatters/latest-tag/reference/format_value.html)
+  [`formatters::format_value()`](https://pharmaverse.github.io/formatters/latest-tag/reference/format_value.html)
   for details.
 
 - vec:

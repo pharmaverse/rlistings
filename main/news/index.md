@@ -2,6 +2,11 @@
 
 ## rlistings 0.2.13.9004
 
+- Updated documentation links from `insightsengineering` to
+  `pharmaverse` (search index, `formatters`/`rtables` cross-links,
+  README and vignettes)
+  ([\#285](https://github.com/pharmaverse/rlistings/issues/285)).
+
 ## rlistings 0.2.13
 
 CRAN release: 2025-12-08

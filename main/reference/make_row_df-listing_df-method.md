@@ -86,7 +86,7 @@ make_row_df(
   (`font_spec`)\
   a font_spec object specifying the font information to use for
   calculating string widths and heights, as returned by
-  [`font_spec()`](https://insightsengineering.github.io/formatters/latest-tag/reference/font_spec.html).
+  [`font_spec()`](https://pharmaverse.github.io/formatters/latest-tag/reference/font_spec.html).
 
 - round_type:
 
@@ -96,7 +96,7 @@ make_row_df(
   or `"sas"`)\
   iec, the default, and iec_mod performs rounding compliant with IEC
   60559 (see notes in
-  [`round_fmt()`](https://insightsengineering.github.io/formatters/latest-tag/reference/round_fmt.html)),
+  [`round_fmt()`](https://pharmaverse.github.io/formatters/latest-tag/reference/round_fmt.html)),
   while sas performs nearest-value rounding consistent with rounding
   within SAS.\
   In addition, the rounding of a negative number that rounds to zero
@@ -110,7 +110,7 @@ a `data.frame` with pagination information.
 
 ## See also
 
-[`formatters::make_row_df()`](https://insightsengineering.github.io/formatters/latest-tag/reference/make_row_df.html)
+[`formatters::make_row_df()`](https://pharmaverse.github.io/formatters/latest-tag/reference/make_row_df.html)
 
 ## Examples
 

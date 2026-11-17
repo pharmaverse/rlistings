@@ -1,7 +1,7 @@
 # Methods for `listing_df` objects
 
 See core documentation in
-[formatters::formatters-package](https://insightsengineering.github.io/formatters/latest-tag/reference/formatters-package.html)
+[formatters::formatters-package](https://pharmaverse.github.io/formatters/latest-tag/reference/formatters-package.html)
 for descriptions of these functions.
 
 ## Usage
@@ -100,7 +100,7 @@ obj_round_type(obj) <- value
   (`font_spec`)\
   a font_spec object specifying the font information to use for
   calculating string widths and heights, as returned by
-  [`font_spec()`](https://insightsengineering.github.io/formatters/latest-tag/reference/font_spec.html).
+  [`font_spec()`](https://pharmaverse.github.io/formatters/latest-tag/reference/font_spec.html).
 
 - col_gap:
 
@@ -112,13 +112,13 @@ obj_round_type(obj) <- value
   (`string`)\
   The type of rounding to perform. Allowed values: (`"iec"`, `"iec_mod"`
   or `"sas"`) See
-  [`round_fmt()`](https://insightsengineering.github.io/formatters/latest-tag/reference/round_fmt.html)
+  [`round_fmt()`](https://pharmaverse.github.io/formatters/latest-tag/reference/round_fmt.html)
   for details.
 
 - ...:
 
   additional parameters passed to
-  [`formatters::toString()`](https://insightsengineering.github.io/formatters/latest-tag/reference/tostring.html).
+  [`formatters::toString()`](https://pharmaverse.github.io/formatters/latest-tag/reference/tostring.html).
 
 - i:
 
