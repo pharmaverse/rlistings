@@ -532,7 +532,7 @@ setMethod(
     }
 
     # trailing sep setting
-    row_info <- make_row_df(obj, fontspec = fontspec)
+    row_info <- make_row_df(obj, fontspec = fontspec, round_type = round_type)
     if (!is.null(listing_trailing_sep(obj))) {
       lts <- listing_trailing_sep(obj)
 

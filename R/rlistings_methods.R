@@ -25,7 +25,7 @@ print.listing_df <- function(x,
     {
       cat(
         toString(
-          matrix_form(x, fontspec = fontspec, col_gap = col_gap),
+          matrix_form(x, fontspec = fontspec, col_gap = col_gap, round_type = round_type),
           widths = widths,
           tf_wrap = tf_wrap,
           max_width = max_width,
