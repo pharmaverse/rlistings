@@ -181,6 +181,11 @@ testthat::test_that("sas rounding support", {
     export_as_txt(lsting, round_type = "sas"),
     toString(lsting, round_type = "sas")
   )
+  print_sas <- paste0(paste(capture.output(print(lsting, round_type = "sas")), collapse = "\n"), "\n")
+  expect_identical(
+    print_sas,
+    toString(lsting, round_type = "sas")
+  )
 })
 
 testthat::test_that("listings supports horizontal separators", {
